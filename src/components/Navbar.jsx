@@ -1,7 +1,10 @@
+import Button from "./Button";
+
 const Navbar = () => {
     return (
-      <div className="flex items-center max-w-screen-xl px-4 py-5 mx-auto bg-zinc-800">
-        <img
+      <div className="flex items-center justify-between max-w-screen-xl px-4 py-5 mx-auto border-b-2 border-zinc-700">
+       <div className="flex items-start nleft">
+       <img
           src="https://cdn.prod.website-files.com/6334198f239547d0f9cd84b3/63349803431f1562dccf1802_refokus%20logo.svg"
           alt="Refokus company logo"
     
@@ -22,6 +25,8 @@ const Navbar = () => {
             </a>
           ))}
         </div>
+       </div>
+    <Button />
       </div>
     );
   };
