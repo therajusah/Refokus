@@ -1,10 +1,13 @@
+import { useScroll } from "framer-motion";
+import { useState } from "react";
+
 const Work = () => {
-  var images = [
+  const [images, setImages] = useState([
     {
       url: "https://cdn.prod.website-files.com/6334198f239547d0f9cd84b3/634ef09178195ce0073e38f3_Refokus%20Tools-1.png",
       top: "50%",
       left: "50%",
-      isActive: true,
+      isActive: false,
     },
     {
       url: "https://cdn.prod.website-files.com/6334198f239547d0f9cd84b3/634ef0accfe1b3e66bc55462_Refokus%20Tools.png",
@@ -36,12 +39,51 @@ const Work = () => {
       left: "55%",
       isActive: false,
     },
-  ];
+  ]);
+
+  const { scrollYProgress } = useScroll();
+
+  const imagesShow = (activeIndexes) => {
+    setImages(prevImages =>
+      prevImages.map((item, index) => ({
+        ...item,
+        isActive: activeIndexes.includes(index)
+      }))
+    );
+  };
+
+  scrollYProgress.on("change", (data) => {
+    switch (Math.floor(data * 100)) {
+      case 0:
+        imagesShow([]);
+        break;
+      case 1:
+        imagesShow([0]);
+        break;
+      case 2:
+        imagesShow([0, 1]);
+        break;
+      case 3:
+        imagesShow([0, 1, 2]);
+        break;
+      case 4:
+        imagesShow([0, 1, 2, 3]);
+        break;
+      case 5:
+        imagesShow([0, 1, 2, 4]);
+        break;
+      case 6:
+        imagesShow([0, 1, 2, 3, 5]);
+        break;
+      default:
+        imagesShow([]);
+    }
+  });
 
   return (
-    <div className="w-full mt-20 ">
+    <div className="w-full mt-20">
       <div className="max-w-screen-xl mx-auto text-center">
-        <h1 className="text-[30vw] leading-none font-medium tracking-tight select-none ">
+        <h1 className="text-[30vw] leading-none font-medium tracking-tight select-none">
           Work
         </h1>
         <div className="absolute top-0 w-full h-full">
