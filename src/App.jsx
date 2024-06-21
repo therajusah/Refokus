@@ -6,7 +6,10 @@ import Products from "./components/Products";
 import Stripes from "./components/Stripes";
 import Work from "./components/Work";
 
+import LocomotiveScroll from "locomotive-scroll";
+
 const App = () => {
+  const locomotiveScroll = new LocomotiveScroll();
   return (
     <div className="w-full text-white bg-black h-200vh">
       {/* Here in the above code h-screen changed to h-200vh */}
