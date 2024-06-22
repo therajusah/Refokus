@@ -1,9 +1,10 @@
 import { HiArrowLongRight } from "react-icons/hi2";
 import PropTypes from "prop-types";
+import { motion } from "framer-motion";
 
-const Card = ({ width, start, para, hover }) => {
+const Card = ({ width, start, para, hover="false" }) => {
   return (
-    <div className={`p-5 bg-zinc-800 hover:${hover} rounded-xl ${width} min-h-[30rem] flex flex-col justify-between `}>
+    <motion.div whileHover={{backgroundColor: hover==="true" && "#7443ff"}} className={`p-5 bg-zinc-800 rounded-xl ${width} min-h-[30rem] flex flex-col justify-between `}>
       <div className="w-full">
         <div className="flex items-center justify-between w-full">
           <h3>One Heading</h3>
@@ -28,7 +29,7 @@ const Card = ({ width, start, para, hover }) => {
           </p>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

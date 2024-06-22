@@ -10,13 +10,17 @@ const Marquees = () => {
     "https://cdn.prod.website-files.com/6334198f239547d0f9cd84b3/65b2d275e1d5aa08ccc379dd_ypo.svg",
     "https://cdn.prod.website-files.com/6334198f239547d0f9cd84b3/65b2d275909535ff431975cf_lavender.svg",
     "https://cdn.prod.website-files.com/6334198f239547d0f9cd84b3/65b2d36963b956910ca67534_remind.svg",
-    "https://cdn.prod.website-files.com/6334198f239547d0f9cd84b3/65b2ce14e6c85b010c2e1e3c_Logo%20White%201.svg"
+    "https://cdn.prod.website-files.com/6334198f239547d0f9cd84b3/65b2ce14e6c85b010c2e1e3c_Logo%20White%201.svg",
   ];
 
   return (
     <div className="flex py-20 mt-20">
       {images.map((url, index) => (
-        <Marquee key={index} imagesurls={[url]} />
+        <Marquee
+          key={index}
+          direction={index === 0 ? "left" : "right"}
+          imagesurls={[url]}
+        />
       ))}
     </div>
   );
